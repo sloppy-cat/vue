@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <my-component v-on:show-log="printText" :message="message" ></my-component>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  <script>
+    var cmp1 = {
+      props: ['message'],
+      methods: {
+        showLog: function() {
+          this.$emit('show-log');
+        }
+      },
+      template: `
+      <div>
+        <button @click="showLog">show</button>
+        <div>{{ message }}</div>
+      </div>
+      `,
+    }
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello vue! passed from Parent Component'
+      },
+      components: {
+        'my-component': cmp1,
+      },
+      methods: {
+        printText: function() {
+          console.log('recieved an event from child component');
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>
