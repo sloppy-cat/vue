@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {store} from '../global'
 
-function handleOnSubmit(e: Event) {
-  const value = e?.target['0']?.value as string
+function handleOnSubmit(e: any) {
+  const value = e.target['0']?.value as string
   if (value) {
     store.changeKeyWord(value)
   }

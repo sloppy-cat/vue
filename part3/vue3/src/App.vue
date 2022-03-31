@@ -5,7 +5,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import { store } from './global'
 
-function handleOnSubmit(e: Event) {
+function handleOnSubmit(e: any) {
   const value = e.target['0'].value as string
   if (value) {
     store.changeKeyWord(value)
