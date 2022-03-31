@@ -8,5 +8,10 @@ export const useState = () => {
   function changeKeyWord(value:string) {
     state.keyWord = value
   }
-  return {state, changeKeyWord}
+
+  function isInitial() {
+    return state.keyWord === "initial value"
+  }
+
+  return {state, changeKeyWord, isInitial}
 }

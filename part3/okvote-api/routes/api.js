@@ -4,7 +4,8 @@ var router = express.Router();
 router.get('/user/:id', function(req, res, next) {
   const id = req.params.id;
   const user = { id, name: 'kenu' };
-  res.json({ title: 'Get', user });
+  setTimeout(() => res.json({ title: 'Get', user }),1000);
+
 });
 
 router.post('/user', function(req, res, next) {

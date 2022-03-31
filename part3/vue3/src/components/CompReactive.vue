@@ -1,21 +1,27 @@
 <script setup lang="ts">
-import {store} from '../global'
+import myStore from '../myStore'
 
 function handleOnSubmit(e: any) {
   const value = e.target['0']?.value as string
   if (value) {
-    store.changeKeyWord(value)
+    myStore.changeKeyWord(value)
   }
+}
+
+function isPosibleSecond() {
+  console.log(myStore.isInitial())
+  console.log(myStore.isMainInitial())
 }
 </script>
 
 <template>
   <div class="component">
-    <h1>Component: {{store.state.keyWord}}</h1>
+    <h1>Component Reactive: {{myStore.state.keyWord}}</h1>
     <form @submit.prevent="handleOnSubmit">
       <input type="text">
       <button type="submit">sub</button>
     </form>
+    <button @click="isPosibleSecond">이중저장소 가능?</button>
   </div>
 </template>
 
