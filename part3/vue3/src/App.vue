@@ -3,9 +3,10 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 
 import CompReactive from './components/CompReactive.vue'
+import CompPinia from './components/CompPinia.vue'
+import Practice from './components/Practice.vue';
 import myStore from './myStore'
 import useStore from './piniaStore'
-import CompPinia from './components/CompPinia.vue'
 const store = useStore()
 
 async function handleOnSubmit(e: any) {
@@ -28,7 +29,7 @@ async function handleOnSubmitPinia(e: any) {
   <img alt="Vue logo" src="./assets/logo.png" />
   <div class="reactive">
     <CompReactive />
-    <h1>App Reactive: {{myStore.state.keyWord}}</h1>
+    <h1>App Reactive: {{myStore.state.isLoading ? '로딩중입니다' : myStore.state.keyWord}}</h1>
     <form @submit.prevent="handleOnSubmit">
       <input type="text">
       <button type="submit">sub</button>
@@ -41,6 +42,9 @@ async function handleOnSubmitPinia(e: any) {
       <input type="text">
       <button type="submit">sub</button>
     </form>
+  </div>
+  <div class="practice">
+    <Practice />
   </div>
 </template>
 

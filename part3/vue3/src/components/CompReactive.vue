@@ -16,7 +16,7 @@ function isPosibleSecond() {
 
 <template>
   <div class="component">
-    <h1>Component Reactive: {{myStore.state.keyWord}}</h1>
+    <h1>Component Reactive: {{myStore.state.isLoading ? '로딩중입니다' : myStore.state.keyWord}}</h1>
     <form @submit.prevent="handleOnSubmit">
       <input type="text">
       <button type="submit">sub</button>
