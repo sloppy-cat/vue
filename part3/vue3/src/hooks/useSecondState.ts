@@ -6,5 +6,5 @@ export const useSecondState = () => {
     return myStore.isInitial()
   }
 
-  return {isMainInitial}
+  return { isMainInitial }
 }
